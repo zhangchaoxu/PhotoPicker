@@ -34,14 +34,14 @@ allprojects {
 }
 
 dependencies {
-        compile 'com.github.zhangchaoxu:PhotoPicker:v1.0.2'
+        compile 'com.github.zhangchaoxu:PhotoPicker:v1.0.3'
 }
 ```
 
 ### 自定义
 1. 自定义添加更多图片
 再drawable-anydip或者对应dpi中加入__picker_ic_camera_n.png
-2. 
+2.
 
 
 # License

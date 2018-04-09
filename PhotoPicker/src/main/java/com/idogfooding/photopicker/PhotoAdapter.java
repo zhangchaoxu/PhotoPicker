@@ -55,7 +55,7 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
             }
         });
         //Step.2
-        getMultiTypeDelegate().registerItemType(PhotoEntity.TYPE_ADD, R.layout.__picker_item_photo_picky_add)
+        getMultiTypeDelegate().registerItemType(PhotoEntity.TYPE_ADD, R.layout.__picker_item_photo_add)
                 .registerItemType(PhotoEntity.TYPE_FILE, R.layout.__picker_item_photo)
                 .registerItemType(PhotoEntity.TYPE_URL, R.layout.__picker_item_photo);
     }
