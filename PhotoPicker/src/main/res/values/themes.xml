@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="__picker_ActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/__picker_actionbar_text_color</item>
+        <item name="android:background">@color/__picker_actionbar_background_color</item>
+    </style>
+
+    <style name="__picker_Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarTheme">@style/__picker_ActionBarTheme</item>
+        <item name="colorPrimary">@color/__picker_actionbar_background_color</item>
+        <item name="colorPrimaryDark">@color/__picker_actionbar_background_dark_color</item>
+    </style>
+
+</resources>
