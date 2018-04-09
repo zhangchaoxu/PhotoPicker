@@ -8,6 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:src="@drawable/__picker_bg_material_item" />
+        android:src="@drawable/__picker_ic_camera_n" />
 
 </me.iwf.photopicker.widget.SquareItemLayout>
