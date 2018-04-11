@@ -5,8 +5,10 @@
     android:padding="1dp">
 
     <ImageView
+        android:id="@+id/iv_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         android:gravity="center"
         android:scaleType="centerCrop"
         android:src="@drawable/__picker_ic_photo_add" />
