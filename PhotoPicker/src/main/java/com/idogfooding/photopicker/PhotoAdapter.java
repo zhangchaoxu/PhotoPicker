@@ -86,12 +86,12 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
                 holder.setVisible(R.id.v_selected, false);
                 Uri uri = Uri.fromFile(new File(data.getPath()));
                 if (AndroidLifecycleUtils.canLoadImage(mContext)) {
-                    final RequestOptions options = new RequestOptions().centerCrop()
-                            .placeholder(R.drawable.__picker_ic_photo_black_48dp)
-                            .error(R.drawable.__picker_ic_broken_image_black_48dp);
                     Glide.with(mContext)
                             .load(uri)
-                            .apply(options)
+                            .apply(new RequestOptions()
+                                    .centerCrop()
+                                    .placeholder(R.drawable.__picker_ic_photo_black_48dp)
+                                    .error(R.drawable.__picker_ic_broken_image_black_48dp))
                             .thumbnail(0.1f)
                             .into((ImageView) holder.getView(R.id.iv_photo));
                     break;
@@ -99,12 +99,12 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
             case PhotoEntity.TYPE_URL:
                 holder.setVisible(R.id.v_selected, false);
                 if (AndroidLifecycleUtils.canLoadImage(mContext)) {
-                    final RequestOptions options = new RequestOptions().centerCrop()
-                            .placeholder(R.drawable.__picker_ic_photo_black_48dp)
-                            .error(R.drawable.__picker_ic_broken_image_black_48dp);
                     Glide.with(mContext)
-                            .load(data.getPath())
-                            .apply(options)
+                            .load(data.getThumbnail())
+                            .apply(new RequestOptions()
+                                    .centerCrop()
+                                    .placeholder(R.drawable.__picker_ic_photo_black_48dp)
+                                    .error(R.drawable.__picker_ic_broken_image_black_48dp))
                             .thumbnail(0.1f)
                             .into((ImageView) holder.getView(R.id.iv_photo));
                     break;
