@@ -28,6 +28,7 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
 
     private int maxCount = 9; // 最大支持数量
     private boolean addEnable = true; // 是否允许添加
+    private int morePhotoResId = R.drawable.__picker_ic_photo_add; // 添加更多的图片资源
 
     public int getMaxCount() {
         return maxCount;
@@ -43,6 +44,14 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
 
     public void setAddEnable(boolean addEnable) {
         this.addEnable = addEnable;
+    }
+
+    public int getMorePhotoResId() {
+        return morePhotoResId;
+    }
+
+    public void setMorePhotoResId(int morePhotoResId) {
+        this.morePhotoResId = morePhotoResId;
     }
 
     public PhotoAdapter(ArrayList<PhotoEntity> photoPaths) {
@@ -65,20 +74,24 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
         //Step.3
         switch (holder.getItemViewType()) {
             case PhotoEntity.TYPE_ADD:
-                // do something
+                if (AndroidLifecycleUtils.canLoadImage(mContext)) {
+                    Glide.with(mContext)
+                            .load(getMorePhotoResId())
+                            .thumbnail(0.1f)
+                            .into((ImageView) holder.getView(R.id.iv_photo));
+                    break;
+                }
                 break;
             case PhotoEntity.TYPE_FILE:
                 holder.setVisible(R.id.v_selected, false);
                 Uri uri = Uri.fromFile(new File(data.getPath()));
-                boolean canLoadImage = AndroidLifecycleUtils.canLoadImage(mContext);
-                if (canLoadImage) {
-                    RequestOptions options = new RequestOptions()
-                            .centerCrop()
-                            .placeholder(R.drawable.__picker_ic_photo_black_48dp)
-                            .error(R.drawable.__picker_ic_broken_image_black_48dp);
+                if (AndroidLifecycleUtils.canLoadImage(mContext)) {
                     Glide.with(mContext)
                             .load(uri)
-                            .apply(options)
+                            .apply(new RequestOptions()
+                                    .centerCrop()
+                                    .placeholder(R.drawable.__picker_ic_photo_black_48dp)
+                                    .error(R.drawable.__picker_ic_broken_image_black_48dp))
                             .thumbnail(0.1f)
                             .into((ImageView) holder.getView(R.id.iv_photo));
                     break;
@@ -86,13 +99,12 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
             case PhotoEntity.TYPE_URL:
                 holder.setVisible(R.id.v_selected, false);
                 if (AndroidLifecycleUtils.canLoadImage(mContext)) {
-                    RequestOptions options = new RequestOptions()
-                            .centerCrop()
-                            .placeholder(R.drawable.__picker_ic_photo_black_48dp)
-                            .error(R.drawable.__picker_ic_broken_image_black_48dp);
                     Glide.with(mContext)
-                            .load(data.getPath())
-                            .apply(options)
+                            .load(data.getThumbnail())
+                            .apply(new RequestOptions()
+                                    .centerCrop()
+                                    .placeholder(R.drawable.__picker_ic_photo_black_48dp)
+                                    .error(R.drawable.__picker_ic_broken_image_black_48dp))
                             .thumbnail(0.1f)
                             .into((ImageView) holder.getView(R.id.iv_photo));
                     break;

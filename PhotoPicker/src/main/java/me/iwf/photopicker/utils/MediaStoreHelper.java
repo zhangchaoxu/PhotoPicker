@@ -55,6 +55,10 @@ public class MediaStoreHelper {
       photoDirectoryAll.setName(context.getString(R.string.__picker_all_image));
       photoDirectoryAll.setId("ALL");
 
+      // fix empty view after cancel camera
+      // see {https://github.com/donglua/PhotoPicker/issues/247}
+      if(!data.moveToFirst()){ return; }
+
       while (data.moveToNext()) {
 
         int imageId  = data.getInt(data.getColumnIndexOrThrow(_ID));

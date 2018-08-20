@@ -20,18 +20,15 @@
         <!-- photopicker -->
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/__picker_Theme" />
 
         <activity
             android:name="me.iwf.photopicker.PhotoPagerActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/__picker_Theme" />
 
         <!-- ucrop -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 </manifest>

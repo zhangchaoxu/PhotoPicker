@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <me.iwf.photopicker.widget.SquareItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="1dp">
 
     <ImageView
+        android:id="@+id/iv_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/__picker_ic_photo_add"
+        android:adjustViewBounds="true"
         android:gravity="center"
-        android:scaleType="centerInside" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/__picker_ic_photo_add" />
 
 </me.iwf.photopicker.widget.SquareItemLayout>

@@ -21,10 +21,18 @@ public class PhotoEntity implements Serializable {
     public PhotoEntity(int type, String path) {
         this.type = type;
         this.path = path;
+        this.thumbnail = path;
+    }
+
+    public PhotoEntity(int type, String path, String thumbnail) {
+        this.type = type;
+        this.path = path;
+        this.thumbnail = thumbnail;
     }
 
     private int type;
     private String path;
+    private String thumbnail;
 
     public int getType() {
         return type;
@@ -42,4 +50,11 @@ public class PhotoEntity implements Serializable {
         this.path = path;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 }

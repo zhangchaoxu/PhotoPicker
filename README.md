@@ -34,7 +34,7 @@ allprojects {
 }
 
 dependencies {
-        compile 'com.github.zhangchaoxu:PhotoPicker:v1.0.3'
+        compile 'com.github.zhangchaoxu:PhotoPicker:v1.0.6'
 }
 ```
 

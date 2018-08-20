@@ -13,8 +13,8 @@
     <color name="__picker_item_photo_border_n">#33ffffff</color>
 
     <color name="__picker_actionbar_text_color">#FFFFFF</color>
-    <color name="__picker_actionbar_background_color">#2196F3</color>
-    <color name="__picker_actionbar_background_dark_color">#1976D2</color>
+    <color name="__picker_actionbar_background_color">#393a3f</color>
+    <color name="__picker_actionbar_background_dark_color">#303135</color>
 
     <color name="__picker_ucrop_color_toolbar_widget" tools:override="true">#FFFFFF</color>
 
