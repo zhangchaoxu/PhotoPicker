@@ -72,8 +72,8 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
                 Uri uri = Uri.fromFile(new File(data.getPath()));
                 boolean canLoadImage = AndroidLifecycleUtils.canLoadImage(mContext);
                 if (canLoadImage) {
-                    final RequestOptions options = new RequestOptions();
-                    options.centerCrop()
+                    RequestOptions options = new RequestOptions()
+                            .centerCrop()
                             .placeholder(R.drawable.__picker_ic_photo_black_48dp)
                             .error(R.drawable.__picker_ic_broken_image_black_48dp);
                     Glide.with(mContext)
@@ -86,8 +86,8 @@ public class PhotoAdapter extends BaseQuickAdapter<PhotoEntity, BaseViewHolder> 
             case PhotoEntity.TYPE_URL:
                 holder.setVisible(R.id.v_selected, false);
                 if (AndroidLifecycleUtils.canLoadImage(mContext)) {
-                    final RequestOptions options = new RequestOptions();
-                    options.centerCrop()
+                    RequestOptions options = new RequestOptions()
+                            .centerCrop()
                             .placeholder(R.drawable.__picker_ic_photo_black_48dp)
                             .error(R.drawable.__picker_ic_broken_image_black_48dp);
                     Glide.with(mContext)
